@@ -18,3 +18,68 @@ I will collect data from Steam, including sales figures, user reviews, and commu
 - Analyze the data using charts and descriptive statistics to compare trends.  
 - Test the hypothesis by evaluating whether Turkish-supported games have a higher purchase rate and preference among Turkish players.  
 - Draw conclusions on the impact of Turkish language support on game sales and player choices.
+
+# Data Analysis
+
+## 1. Collecting Data
+I gathered daily Steam concurrent‐player data for two games—The Witcher 3: Wild Hunt (with Turkish language support) and Sekiro™: Shadows Die Twice (without Turkish support)—over a two‐week period (13/04/2025–26/04/2025). For each date and each game, I recorded:
+
+Average Concurrent Players
+
+Peak Concurrent Players
+
+Review Score (%)
+
+Price (USD)
+
+All data were pulled from Steam’s official store page, SteamDB, and Steam Charts and stored in an Excel file for analysis.
+
+I then grouped entries by whether the game offers Turkish support:
+
+Turkish Support: The Witcher 3
+
+No Turkish Support: Sekiro
+
+## 2. Exploratory Data Analysis (EDA)
+Using pandas and matplotlib, I examined how the player counts differ between these two groups.
+
+### 2.1 Histogram
+
+This histogram shows the overall distribution of daily average concurrent players across both games. You can see two distinct clusters:
+
+![output](https://github.com/user-attachments/assets/052652bc-d99b-430c-87ee-546a8774972c)
+
+
+### 2.2 Boxplot
+
+This boxplot compares “No Turkish Support” vs. “Turkish Support.” The median and interquartile range for Witcher 3 are substantially higher than those for Sekiro, indicating consistently more players.
+![output (1)](https://github.com/user-attachments/assets/469586f3-9151-4390-96a4-d36c1e4884fb)
+
+
+### 2.3 Bar Chart
+
+Average daily concurrent players by group:
+
+![output (2)](https://github.com/user-attachments/assets/60753d38-267a-4987-af83-56a50adf4605)
+
+
+## 3. Hypothesis Testing
+H₀: There is no significant difference in average concurrent players between games with and without Turkish support.
+
+H₁: Games with Turkish support have a higher average concurrent player count.
+
+I performed an independent‐samples t-test on the two groups:
+
+T-statistic: 38.42  
+P-value:     3.10e-15 
+
+Since p ≪ 0.05, we reject H₀, confirming that Turkish-supported games (The Witcher 3) attract significantly more concurrent players than similar titles lacking Turkish localization.
+
+## 4. Visualization Summary
+Histogram to view overall player‐count distribution.
+
+Boxplot to compare medians and variability by support group.
+
+Bar chart to illustrate the clear difference in mean player counts.
+
+Further analyses might include time‐series line plots of daily trends or scatterplots relating price or review score to player counts.
