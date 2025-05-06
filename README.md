@@ -41,45 +41,50 @@ Turkish Support: The Witcher 3
 No Turkish Support: Sekiro
 
 ## 2. Exploratory Data Analysis (EDA)
-Using pandas and matplotlib, I examined how the player counts differ between these two groups.
+Using pandas, matplotlib, and seaborn, I carried out exploratory data analysis to examine whether Turkish language support in games affects player engagement, focusing on average player counts. After cleaning and formatting the dataset, I produced several visualizations to uncover usage patterns.
+
+A histogram revealed that while most games have lower average player numbers, a few titles attract significantly higher engagement. The boxplot comparison showed that games with Turkish support tend to have both higher median values and a wider distribution, indicating greater player interest. The bar chart confirmed this, with Turkish-supported games averaging 11,730 players, compared to 4,849 for others. Lastly, a regression scatterplot showed a clear upward trend, suggesting a positive linear relationship between Turkish language support and player count.
 
 ### 2.1 Histogram
 
-This histogram shows the overall distribution of daily average concurrent players across both games. You can see two distinct clusters:
+![histogram](https://github.com/user-attachments/assets/0f85db01-da63-44ee-a9eb-57fd97a0cba8)
 
-![output](https://github.com/user-attachments/assets/052652bc-d99b-430c-87ee-546a8774972c)
+The histogram shows the distribution of average players across all games. Most values are spread widely, but a noticeable peak exists at lower player counts.
 
 
 ### 2.2 Boxplot
 
-This boxplot compares “No Turkish Support” vs. “Turkish Support.” The median and interquartile range for Witcher 3 are substantially higher than those for Sekiro, indicating consistently more players.
-![output (1)](https://github.com/user-attachments/assets/469586f3-9151-4390-96a4-d36c1e4884fb)
+![boxplot](https://github.com/user-attachments/assets/94c76a04-6ce2-4c09-93f1-e32c740ec0c3)
+
+This boxplot compares the average player count between games with and without Turkish language support. The median and spread are significantly higher for games that offer Turkish.
 
 
 ### 2.3 Bar Chart
 
-Average daily concurrent players by group:
+![barchart](https://github.com/user-attachments/assets/f5325973-8c35-46df-918a-561d7a8190e0)
 
-![output (2)](https://github.com/user-attachments/assets/60753d38-267a-4987-af83-56a50adf4605)
+This bar chart visualizes the average player count by language support:
+
+Games with Turkish support: ~11,730 average players
+
+Games without Turkish support: ~4,849 average players
+
+
+### 2.4 Scatterplot with Regression Line
+
+![linear](https://github.com/user-attachments/assets/70a0e3d0-9383-4709-8296-09fe905364c2)
+
+This scatterplot with a regression line shows the relationship between Turkish support (0 = No, 1 = Yes) and average player count. The clear positive slope suggests that Turkish language support correlates with higher player numbers.
 
 
 ## 3. Hypothesis Testing
-H₀: There is no significant difference in average concurrent players between games with and without Turkish support.
+I formulated the following hypotheses to test the statistical difference in player engagement between games with and without Turkish support:
 
-H₁: Games with Turkish support have a higher average concurrent player count.
+Null Hypothesis (H₀): There is no significant difference in average player counts between the two groups.
 
-I performed an independent‐samples t-test on the two groups:
+Alternative Hypothesis (H₁): Games with Turkish support have significantly higher average player counts.
 
-T-statistic: 38.42  
-P-value:     3.10e-15 
-
-Since p ≪ 0.05, we reject H₀, confirming that Turkish-supported games (The Witcher 3) attract significantly more concurrent players than similar titles lacking Turkish localization.
+An independent samples t-test was applied, resulting in a t-statistic of 38.42 and a p-value of 5.494828e-19. Since the p-value is far below the 0.05 threshold, the null hypothesis is rejected. This means the difference in player engagement is statistically significant and supports the idea that Turkish language support has a meaningful impact on a game's popularity among players.
 
 ## 4. Visualization Summary
-Histogram to view overall player‐count distribution.
-
-Boxplot to compare medians and variability by support group.
-
-Bar chart to illustrate the clear difference in mean player counts.
-
-Further analyses might include time‐series line plots of daily trends or scatterplots relating price or review score to player counts.
+To better understand the player engagement patterns, I visualized several aspects of the dataset. A histogram was used to display the overall distribution of average player counts, highlighting the concentration of player activity across games. Then, a boxplot allowed me to examine how the central tendencies and variability differ between games that support Turkish and those that do not, making the contrast in median values and outliers visually apparent. I also included a bar chart to present the mean average players for each group, emphasizing the performance gap between the two categories. Lastly, a scatterplot with a regression line was plotted to capture the trend between Turkish language support and player activity, clearly suggesting a positive linear association. Additional visualizations such as segmented trend lines over time or comparative density distributions could further enrich the analysis if temporal or genre-based insights are desired.
